@@ -51,20 +51,20 @@ function SocialIcon({
 
 export function SiteFooter() {
   return (
-    <footer className="relative z-[2] px-6 pb-10 pt-14 md:px-16 md:pb-14 md:pt-[104px] lg:px-24 lg:pt-[152px]">
-      <div className="rounded-[32px] border border-ink-hair/60 bg-cream-soft/60 px-6 shadow-[0_1px_0_rgba(255,255,255,0.6)_inset] backdrop-blur-sm md:px-16 lg:px-24">
-        <div className="pt-20 pb-10">
-        <div className="grid gap-16 md:grid-cols-12">
+    <footer className="relative z-[2] px-4 pb-6 pt-14 sm:px-6 md:px-16 md:pb-14 md:pt-[104px] lg:px-24 lg:pt-[152px]">
+      <div className="rounded-[28px] border border-ink-hair/60 bg-cream-soft/60 px-6 shadow-[0_1px_0_rgba(255,255,255,0.6)_inset] backdrop-blur-sm sm:px-8 md:rounded-[32px] md:px-16 lg:px-24">
+        <div className="pt-14 pb-8 md:pt-20 md:pb-10">
+        <div className="grid gap-10 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-5">
             <Link
               href="/"
               aria-label="Renocheck — home"
               className="inline-flex items-baseline font-display text-ink"
             >
-              <span className="text-[48px] font-medium leading-none tracking-tight md:text-[56px]">
+              <span className="text-[40px] font-medium leading-none tracking-tight sm:text-[48px] md:text-[56px]">
                 Reno
               </span>
-              <span className="text-[48px] font-medium italic leading-none tracking-tight text-gold-dark md:text-[56px]">
+              <span className="text-[40px] font-medium italic leading-none tracking-tight text-gold-dark sm:text-[48px] md:text-[56px]">
                 check
               </span>
               <span
@@ -72,10 +72,10 @@ export function SiteFooter() {
                 className="ml-1.5 inline-block h-1.5 w-1.5 translate-y-[-8px] rounded-full bg-gold-dark opacity-70"
               />
             </Link>
-            <p className="mt-8 max-w-sm text-[15px] leading-[1.7] text-ink-soft">
+            <p className="mt-6 max-w-sm text-[15px] leading-[1.7] text-ink-soft md:mt-8">
               Producten, events en ledenportaal voor bouwprofessionals.
             </p>
-            <div className="mt-10 flex items-center gap-5">
+            <div className="mt-8 flex items-center gap-5 md:mt-10">
               {(["instagram", "facebook", "linkedin"] as const).map((name) => (
                 <a
                   key={name}
@@ -137,7 +137,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-ink-hair/50 pt-6 text-[11px] text-ink-muted md:flex-row md:items-center">
+        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-ink-hair/50 pt-6 text-[11px] text-ink-muted md:mt-16 md:flex-row md:items-center">
           <p>
             © {new Date().getFullYear()} Renocheck. Alle rechten voorbehouden.
           </p>

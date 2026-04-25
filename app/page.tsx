@@ -46,9 +46,9 @@ export default function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] flex-col justify-center px-6 pb-16 pt-28 sm:px-8 md:px-16 md:py-20 lg:px-24">
+    <section className="relative flex min-h-[88svh] flex-col justify-center px-6 pb-20 pt-32 sm:px-8 md:min-h-[100svh] md:px-16 md:py-20 lg:px-24">
       <div className="mx-auto w-full max-w-[1280px]">
-        <div className="grid items-center gap-14 md:grid-cols-12 md:gap-16">
+        <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
           <div className="min-w-0 md:col-span-7">
             <p className="enter-up delay-300 text-[18px] text-ink-soft">
               Renocheck · Voor bouwprofessionals
@@ -69,7 +69,7 @@ function Hero() {
             </div>
           </div>
 
-          <figure className="enter-fade delay-700 min-w-0 md:col-span-5">
+          <figure className="enter-fade delay-700 hidden min-w-0 md:col-span-5 md:block">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[32px] bg-ink/5">
               <Image
                 src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=90"
@@ -245,7 +245,7 @@ function PullQuote() {
   return (
     <section
       aria-label="Renocheck manifest"
-      className="relative py-28 md:py-40 lg:py-48"
+      className="relative py-20 md:py-40 lg:py-48"
     >
       <div className="mx-auto max-w-[1280px] px-6 md:px-16 lg:px-24">
         <div className="mx-auto max-w-4xl text-center">
@@ -283,7 +283,7 @@ function Catalog() {
             className="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-gold-soft/40 blur-3xl"
           />
 
-          <div className="relative grid gap-14 p-10 md:grid-cols-12 md:items-center md:gap-16 md:p-16 lg:p-20">
+          <div className="relative grid gap-10 p-7 sm:p-10 md:grid-cols-12 md:items-center md:gap-16 md:p-16 lg:p-20">
             <div className="min-w-0 md:col-span-6">
               <p className="text-[18px] text-ink-soft">
                 Catalogus
@@ -306,7 +306,7 @@ function Catalog() {
               className="min-w-0 md:col-span-6 md:max-w-lg md:justify-self-end"
               aria-label="Catalogus aanvragen"
             >
-              <div className="rounded-[28px] bg-ivory/80 p-8 ring-1 ring-ink-hair/50 backdrop-blur">
+              <div className="rounded-[28px] bg-ivory/80 p-6 ring-1 ring-ink-hair/50 backdrop-blur sm:p-8">
                 <div className="space-y-6">
                   <FieldInput
                     id="bedrijf"
