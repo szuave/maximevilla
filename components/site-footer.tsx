@@ -93,12 +93,12 @@ export function SiteFooter() {
 
           <FooterColumn
             className="md:col-span-3"
-            title="Collecties"
+            title="Het netwerk"
             links={[
-              { href: "/aanbiedingen#goodies", label: "Goodies" },
-              { href: "/aanbiedingen#hometrends", label: "Hometrends" },
-              { href: "/aanbiedingen#house-home", label: "House & Home" },
-              { href: "/aanbiedingen", label: "Alle aanbiedingen" },
+              { href: "/bouwers", label: "Voor bouwers" },
+              { href: "/architecten", label: "Architecten" },
+              { href: "/vakspecialisten", label: "Vakspecialisten" },
+              { href: "/events", label: "Events" },
             ]}
           />
           <FooterColumn
@@ -106,9 +106,8 @@ export function SiteFooter() {
             title="Renocheck"
             links={[
               { href: "/over-ons", label: "Over ons" },
-              { href: "/events", label: "Events" },
               { href: "/contact", label: "Contact" },
-              { href: "/login", label: "Ledenportaal" },
+              { href: "/login", label: "Partner login" },
             ]}
           />
 
@@ -141,13 +140,25 @@ export function SiteFooter() {
           <p>
             © {new Date().getFullYear()} Renocheck. Alle rechten voorbehouden.
           </p>
-          <div className="flex items-center gap-8">
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
             <Link href="/privacy" className="hover:text-ink">
               Privacybeleid
             </Link>
             <Link href="/cookies" className="hover:text-ink">
               Cookiebeleid
             </Link>
+            <span aria-hidden="true" className="hidden h-3 w-px bg-ink-hair md:inline-block" />
+            <p>
+              Gemaakt door{" "}
+              <a
+                href="https://suave.gg/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-ink-soft transition-colors hover:text-gold-dark"
+              >
+                suave
+              </a>
+            </p>
           </div>
         </div>
         </div>

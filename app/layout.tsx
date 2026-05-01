@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-import { DesktopSidebar, SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
 import {
   OrganizationSchema,
   WebsiteSchema,
@@ -143,16 +141,7 @@ export default function RootLayout({
         >
           Ga naar hoofdinhoud
         </a>
-        <SiteHeader />
-        <div className="relative z-[2] mx-auto flex w-full max-w-[1920px] flex-1 flex-col">
-          <div className="flex flex-1 flex-col lg:flex-row">
-            <main id="main" className="min-w-0 flex-1">
-              {children}
-            </main>
-            <DesktopSidebar />
-          </div>
-          <SiteFooter />
-        </div>
+        {children}
         <OrganizationSchema />
         <WebsiteSchema />
       </body>

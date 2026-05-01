@@ -24,7 +24,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${SITE_URL}/aanbiedingen`,
+      url: `${SITE_URL}/bouwers`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/architecten`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/vakspecialisten`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,

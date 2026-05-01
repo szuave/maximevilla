@@ -1,0 +1,180 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { PillLink } from "@/components/pill-button";
+import { BreadcrumbSchema } from "@/components/structured-data";
+
+export const metadata: Metadata = {
+  title: "Architecten",
+  description:
+    "Een geselecteerd architectennetwerk per regio in Vlaanderen — voor verbouwing, nieuwbouw of interieur. Vind de juiste architect voor uw project.",
+  alternates: { canonical: "/architecten" },
+  openGraph: {
+    title: "Architecten · Renocheck",
+    description:
+      "Architectennetwerk per regio in Vlaanderen — voor elk bouwproject.",
+    url: "/architecten",
+    type: "website",
+  },
+  twitter: {
+    title: "Architecten · Renocheck",
+    description:
+      "Architectennetwerk per regio in Vlaanderen — voor elk bouwproject.",
+  },
+};
+
+const REGIONS = [
+  { name: "Knokke", slug: "knokke", count: 3 },
+  { name: "West-Vlaanderen", slug: "west-vlaanderen", count: 5 },
+  { name: "Oost-Vlaanderen", slug: "oost-vlaanderen", count: 4 },
+  { name: "Antwerpen", slug: "antwerpen", count: 6 },
+  { name: "Vlaams-Brabant", slug: "vlaams-brabant", count: 4 },
+  { name: "Limburg", slug: "limburg", count: 3 },
+];
+
+export default function ArchitectenPage() {
+  return (
+    <article className="relative pt-36 pb-14 sm:pt-44 md:pt-52">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Architecten", url: "/architecten" },
+        ]}
+      />
+
+      <section className="mx-auto max-w-[1280px] px-6 md:px-16 lg:px-24">
+        <p className="enter-up delay-300 text-[18px] text-ink-soft">
+          Architecten
+        </p>
+
+        <h1 className="enter-up delay-400 mt-6 font-display text-[clamp(3rem,8vw,7rem)] font-medium leading-[0.98] text-ink">
+          Een architect voor{" "}
+          <span className="italic text-gold-dark">elk</span> project.
+        </h1>
+
+        <p className="enter-up delay-500 mt-8 max-w-xl text-[17px] leading-[1.65] text-ink-soft md:text-[19px]">
+          Verbouwen, nieuwbouw of interieurontwerp — elke regio kent zijn
+          eigen kring architecten die deel uitmaken van het Renocheck
+          netwerk. Lokaal, betrokken en op maat van uw project.
+        </p>
+      </section>
+
+      <section className="relative mt-28 md:mt-44">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-16 lg:px-24">
+          <div className="grid gap-14 md:grid-cols-12 md:items-center md:gap-16">
+            <div className="min-w-0 md:col-span-7">
+              <div className="relative aspect-[5/4] w-full overflow-hidden rounded-[32px] bg-ink/5">
+                <Image
+                  src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=90"
+                  alt="Architect aan het werk met bouwplannen"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 58vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="min-w-0 md:col-span-5">
+              <p className="text-[18px] text-ink-soft">Hoe selecteren we</p>
+              <h2 className="mt-6 font-display text-[clamp(2rem,4vw,3.5rem)] font-medium leading-[1.05] text-ink">
+                Vakmanschap{" "}
+                <span className="italic text-gold-dark">eerst</span>.
+              </h2>
+              <div className="mt-8 space-y-5 text-[17px] leading-[1.75] text-ink-soft md:text-[18px]">
+                <p>
+                  We werken samen met architecten die hun stijl en proces
+                  verzorgd opvolgen — van eerste schets tot ingebruikname.
+                </p>
+                <p>
+                  Geen passieve doorverwijzers, wel mensen die actief
+                  meedenken met hun klanten en met de vakspecialisten op
+                  hun werf.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="regions-title"
+        className="relative mt-28 md:mt-44"
+      >
+        <div className="mx-auto max-w-[1280px] px-6 md:px-16 lg:px-24">
+          <div className="max-w-2xl">
+            <p className="text-[10px] font-medium uppercase tracking-[0.32em] text-ink-muted">
+              Per regio
+            </p>
+            <h2
+              id="regions-title"
+              className="mt-4 font-display text-[clamp(2rem,4vw,3.5rem)] font-medium leading-[1.05] text-ink"
+            >
+              Architecten in{" "}
+              <span className="italic text-gold-dark">uw</span> regio.
+            </h2>
+          </div>
+
+          <ul className="mt-14 grid gap-0 md:mt-20">
+            {REGIONS.map((r, i) => (
+              <li key={r.slug}>
+                <Link
+                  href="/contact"
+                  className={`group flex items-center justify-between gap-6 py-6 md:py-8 ${
+                    i === 0 ? "border-t border-ink-hair/40" : ""
+                  } border-b border-ink-hair/40`}
+                >
+                  <span className="font-display text-[28px] font-medium leading-tight text-ink transition-colors group-hover:text-gold-dark md:text-[36px]">
+                    {r.name}
+                  </span>
+                  <span className="flex items-center gap-5 text-[13px] text-ink-muted">
+                    <span className="hidden sm:inline">
+                      {r.count} architect{r.count === 1 ? "" : "en"}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink-hair/70 text-ink-soft transition-all duration-300 group-hover:border-gold-dark group-hover:bg-gold-dark group-hover:text-cream"
+                    >
+                      <svg
+                        viewBox="0 0 16 10"
+                        className="h-3 w-4"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M1 5h14M11 1l4 4-4 4" />
+                      </svg>
+                    </span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="mx-auto mt-28 max-w-[1280px] px-6 md:mt-44 md:px-16 lg:px-24">
+        <div className="grid gap-12 md:grid-cols-12 md:items-center md:gap-16">
+          <div className="min-w-0 md:col-span-5">
+            <p className="text-[18px] text-ink-soft">Bent u architect</p>
+            <h2 className="mt-6 font-display text-[clamp(2rem,4vw,3.5rem)] font-medium leading-[1.05] text-ink">
+              Sluit aan bij het{" "}
+              <span className="italic text-gold-dark">netwerk</span>.
+            </h2>
+            <div className="mt-10">
+              <PillLink href="/contact">Word partner</PillLink>
+            </div>
+          </div>
+          <div className="min-w-0 md:col-span-7">
+            <p className="text-[19px] leading-[1.7] text-ink-soft md:text-[20px]">
+              We breiden ons architectennetwerk per regio bewust traag uit
+              — kwaliteit boven kwantiteit. Stel u voor en we plannen een
+              kennismaking.
+            </p>
+          </div>
+        </div>
+      </section>
+    </article>
+  );
+}

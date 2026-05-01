@@ -55,7 +55,7 @@ export function WebsiteSchema() {
     },
     potentialAction: {
       "@type": "SearchAction",
-      target: `${SITE_URL}/aanbiedingen?q={search_term_string}`,
+      target: `${SITE_URL}/vakspecialisten?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
   };

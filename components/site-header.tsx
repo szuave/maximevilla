@@ -7,9 +7,10 @@ import { cn } from "@/lib/utils";
 import { PillLink } from "@/components/pill-button";
 
 const NAV_ITEMS = [
-  { href: "/aanbiedingen", label: "Aanbiedingen" },
+  { href: "/bouwers", label: "Bouwers" },
+  { href: "/architecten", label: "Architecten" },
+  { href: "/vakspecialisten", label: "Vakspecialisten" },
   { href: "/events", label: "Events" },
-  { href: "/over-ons", label: "Over ons" },
   { href: "/contact", label: "Contact" },
 ];
 
