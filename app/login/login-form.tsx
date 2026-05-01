@@ -20,24 +20,34 @@ export function LoginForm() {
     setError(null);
     setLoading(true);
 
-    const supabase = createClient();
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    try {
+      const supabase = createClient();
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
 
-    if (error) {
+      if (error) {
+        setError(
+          error.message === "Invalid login credentials"
+            ? "Ongeldig e-mailadres of wachtwoord."
+            : error.message,
+        );
+        setLoading(false);
+        return;
+      }
+
+      router.replace(next);
+      router.refresh();
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Onbekende fout";
       setError(
-        error.message === "Invalid login credentials"
-          ? "Ongeldig e-mailadres of wachtwoord."
-          : error.message,
+        message.includes("URL and API key")
+          ? "De server is nog niet correct geconfigureerd. Neem contact op met de beheerder."
+          : message,
       );
       setLoading(false);
-      return;
     }
-
-    router.replace(next);
-    router.refresh();
   }
 
   return (
