@@ -1,9 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { PillButton } from "@/components/pill-button";
+
+const CONFIG_OK =
+  Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL) &&
+  Boolean(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
 
 export function LoginForm() {
   const router = useRouter();
@@ -14,6 +18,21 @@ export function LoginForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!CONFIG_OK) {
+      const missing = [
+        !process.env.NEXT_PUBLIC_SUPABASE_URL && "NEXT_PUBLIC_SUPABASE_URL",
+        !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY &&
+          "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+      ]
+        .filter(Boolean)
+        .join(", ");
+      setError(
+        `Server-configuratie ontbreekt: ${missing}. Voeg deze env var toe aan Netlify en doe "Clear cache and deploy site".`,
+      );
+    }
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
